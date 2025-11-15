@@ -127,10 +127,12 @@ const Experience = () => {
 
   return (
     <MainLayout>
-      <Timeline data={journeyData} />
+      <div className="w-full bg-gray-100 dark:bg-neutral-950 font-sans md:px-10">
+        <Timeline data={journeyData} />
+      </div>
       
       {/* View Full Resume Section */}
-      <div className="w-full bg-white dark:bg-neutral-950 font-sans md:px-10">
+      <div className="w-full bg-gray-100 dark:bg-neutral-950 font-sans md:px-10">
         <div className="max-w-7xl mx-auto pb-20 px-4 md:px-8 pl-12 md:pl-32 py-8">
           <a 
             href="/resume/Ashutosh_Resume.pdf" 

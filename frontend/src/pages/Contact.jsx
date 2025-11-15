@@ -14,10 +14,10 @@ const Contact = () => {
   return (
     <MainLayout>
       {/* Main Content */}
-      <div className="flex items-center justify-center min-h-screen px-4 md:px-8 py-8 bg-gray-50">
-        <div className="h-72 relative w-full max-w-2xl overflow-hidden bg-gray-50 rounded-lg flex flex-col items-start justify-start p-6 -mt-16">
+      <div className="flex items-center justify-center min-h-screen px-4 md:px-8 py-8 bg-gray-100">
+        <div className="h-72 relative w-full max-w-2xl overflow-hidden bg-gray-100 rounded-lg flex flex-col items-start justify-start p-6 -mt-16">
           {/* Background Boxes */}
-          <div className="absolute inset-0 w-full h-full bg-gray-50 z-0 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
+          <div className="absolute inset-0 w-full h-full bg-gray-100 z-0 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
           <Boxes />
 
           {/* Content Container - Relative Z Index */}
