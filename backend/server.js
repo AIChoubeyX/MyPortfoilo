@@ -109,6 +109,7 @@ app.post("/api/chat", async (req, res) => {
       });
 
       const data = await response.json();
+      console.log(`📦 Response from ${model}:`, JSON.stringify(data).substring(0, 200));
 
       if (!response.ok) {
         console.error(`❌ Model failed: ${model}`, data);
@@ -120,6 +121,9 @@ app.post("/api/chat", async (req, res) => {
       if (reply) {
         console.log(`✅ Successful using model: ${model}`);
         return res.json({ reply, model });
+      } else {
+        console.warn(`⚠️ No reply content from model: ${model}`);
+        continue;
       }
 
     } catch (err) {
@@ -129,6 +133,7 @@ app.post("/api/chat", async (req, res) => {
   }
 
   // If all models fail
+  console.error("❌ All models failed");
   return res.status(500).json({
     reply: "All AI models failed to respond. Try again later.",
   });
