@@ -6,14 +6,18 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { SYSTEM_PROMPT } from "./systemPrompt.js";
 
+// Load environment variables
 dotenv.config();
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Middleware
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // CORS configuration
 const allowedOrigins = [
@@ -127,12 +131,37 @@ app.use((req, res) => {
   });
 });
 
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error("Error:", err);
+  res.status(500).json({
+    error: "Internal server error",
+    message: err.message,
+  });
+});
+
 // Start server
-app.listen(PORT, () => {
+const server = app.listen(PORT, "0.0.0.0", () => {
   console.log("==========================================");
   console.log(`🚀 Server running on port ${PORT}`);
   console.log(`🔑 OpenRouter Key: ${process.env.OPENROUTER_API_KEY ? "✔️" : "❌"}`);
+  console.log("✅ Server ready to accept requests");
   console.log("==========================================");
+});
+
+// Handle server errors
+server.on("error", (err) => {
+  console.error("❌ Server error:", err);
+  process.exit(1);
+});
+
+// Graceful shutdown
+process.on("SIGTERM", () => {
+  console.log("SIGTERM received, shutting down gracefully");
+  server.close(() => {
+    console.log("Server closed");
+    process.exit(0);
+  });
 });
 
 export default app;
