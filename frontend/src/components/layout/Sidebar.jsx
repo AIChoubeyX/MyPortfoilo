@@ -1,6 +1,7 @@
 import { HomeIcon, ChatBubbleIcon, RocketIcon, CodeIcon, PersonIcon, EnvelopeOpenIcon, MixerHorizontalIcon } from "@radix-ui/react-icons";
 import { NavLink } from "@/components/NavLink";
 import SocialLinks from "./SocialLinks";
+import TextType from "./TextType";
 
 const navItems = [
   { to: "/", icon: HomeIcon, label: "Home" },
@@ -19,15 +20,30 @@ const Sidebar = () => {
         <div className="p-6 border-b border-sidebar-border">
           <div className="flex items-center gap-3">
             <img 
-              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" 
+              src="/images/profile.jpg" 
               alt="Ashutosh" 
               className="w-12 h-12 rounded-full object-cover"
             />
-            <div>
-              <h2 className="font-semibold text-sidebar-foreground">Ashutosh</h2>
-              <p className="text-xs text-muted-foreground">Dev Stallion</p>
+            <div className="flex-1">
+              <h2 className="font-semibold text-sidebar-foreground text-base">Ashutosh</h2>
+              <div className="text-xs text-muted-foreground min-h-[18px]">
+                <TextType 
+                  text={["AI Developer", "Web Builder", "Problem Solver", "Tech Enthusiast"]}
+                  typingSpeed={60}
+                  pauseDuration={2000}
+                  deletingSpeed={40}
+                  showCursor={false}
+                  loop={true}
+                />
+              </div>
             </div>
           </div>
+          {/* <div className="mt-3 flex flex-wrap gap-2">
+            <span className="text-xs bg-primary text-primary-foreground px-2 py-1 rounded-full">AI/ML</span>
+            <span className="text-xs bg-primary text-primary-foreground px-2 py-1 rounded-full">React</span>
+            <span className="text-xs bg-primary text-primary-foreground px-2 py-1 rounded-full">Node.js</span>
+            <span className="text-xs bg-primary text-primary-foreground px-2 py-1 rounded-full">Full Stack</span>
+          </div> */}
         </div>
 
         <nav className="p-3">

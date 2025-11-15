@@ -29,13 +29,13 @@ app.use(
   })
 );
 
-// ---- OpenRouter Model Fallback List ----
+// ---- OpenRouter Model Fallback List (Free Models) ----
 const OPENROUTER_MODELS = [
-  "anthropic/claude-3.5-sonnet",
-  "openai/gpt-4.1",
-  "google/gemini-2.0-pro-exp",
-  "mistralai/mistral-large-latest",
-  "qwen/qwen2.5-72b-instruct"
+  "mistralai/mistral-7b-instruct:free",
+  "openchat/openchat-3.5:free",
+  "gryphe/mythomax-l2-13b:free",
+  "undi95/toppy-m-7b:free",
+  "nousresearch/nous-hermes-2-mixtral-8x7b-dpo:free"
 ];
 
 // Health check

@@ -12,7 +12,7 @@ const HeroSection = () => {
 
   return (
     <BackgroundBeamsWithCollision className="rounded-lg">
-      <div className="w-full text-center md:text-left px-4 md:px-8 py-8 md:py-6 pt-12 md:pt-16">
+      <div className="w-full text-center md:text-left px-4 md:px-8 py-8 md:py-6 pt-12 md:pt-16 mt-[73px] md:mt-0">
         <h1 className="text-3xl md:text-5xl font-semibold text-foreground mb-2 flex flex-wrap items-center gap-2 justify-center md:justify-start" style={{ fontFamily: '"Inter", system-ui, -apple-system, sans-serif', color: 'rgb(22, 22, 22)' }}>
           <span>Hey, I'm</span> <PointerHighlight><span>Ashutosh</span></PointerHighlight>
         </h1>
@@ -38,6 +38,7 @@ const HeroSection = () => {
           <Button 
             size="sm" 
             className="bg-foreground text-background hover:bg-foreground/90 rounded-full px-3 py-0.5 text-xs flex-shrink-0 ml-2"
+            onClick={() => window.open("https://x.com/choubeyjii_1?t=aNWO5J95XL-bVpvu3akEyg&s=09", "_blank")}
           >
             Follow
           </Button>

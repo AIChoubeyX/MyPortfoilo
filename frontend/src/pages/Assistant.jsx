@@ -40,17 +40,41 @@ const Assistant = () => {
     setInput("");
     setIsLoading(true);
 
-    // Simulate API call delay
-    setTimeout(() => {
+    try {
+      const response = await fetch("http://localhost:5000/api/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          message: input,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to get response from AI");
+      }
+
+      const data = await response.json();
       const assistantMessage = {
         id: messages.length + 2,
-        text: "This is a demo response. In a real application, this would be connected to an AI API.",
+        text: data.reply || "Sorry, I couldn't generate a response.",
         sender: "assistant",
         timestamp: new Date(),
       };
       setMessages((prev) => [...prev, assistantMessage]);
+    } catch (error) {
+      console.error("Error:", error);
+      const errorMessage = {
+        id: messages.length + 2,
+        text: "Sorry, there was an error connecting to the AI. Make sure the backend server is running on port 5000.",
+        sender: "assistant",
+        timestamp: new Date(),
+      };
+      setMessages((prev) => [...prev, errorMessage]);
+    } finally {
       setIsLoading(false);
-    }, 1000);
+    }
   };
 
   return (

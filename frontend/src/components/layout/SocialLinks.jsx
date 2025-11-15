@@ -1,10 +1,10 @@
 import { TwitterLogoIcon, LinkedInLogoIcon, GitHubLogoIcon, InstagramLogoIcon, ExternalLinkIcon } from "@radix-ui/react-icons";
 
 const socialLinks = [
-  { icon: TwitterLogoIcon, label: "Twitter", url: "https://twitter.com" },
-  { icon: LinkedInLogoIcon, label: "LinkedIn", url: "https://linkedin.com" },
-  { icon: GitHubLogoIcon, label: "Github", url: "https://github.com" },
-  { icon: InstagramLogoIcon, label: "Instagram", url: "https://instagram.com" },
+  { icon: TwitterLogoIcon, label: "X", url: "https://x.com/choubeyjii_1?t=aNWO5J95XL-bVpvu3akEyg&s=09" },
+  { icon: LinkedInLogoIcon, label: "LinkedIn", url: "https://www.linkedin.com/in/ashutosh-choubey-46695928b" },
+  { icon: GitHubLogoIcon, label: "Github", url: "https://github.com/AIChoubeyX" },
+  { icon: InstagramLogoIcon, label: "Instagram", url: "https://www.instagram.com/choubey_jii1?igsh=MTB2c204Mjh2eGwz" },
 ];
 
 const SocialLinks = () => {

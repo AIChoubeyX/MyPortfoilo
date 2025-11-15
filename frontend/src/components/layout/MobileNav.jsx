@@ -2,6 +2,7 @@ import { useState } from "react";
 import { HamburgerMenuIcon, Cross1Icon, HomeIcon, ChatBubbleIcon, RocketIcon, CodeIcon, PersonIcon, EnvelopeOpenIcon, MixerHorizontalIcon } from "@radix-ui/react-icons";
 import { NavLink } from "@/components/NavLink";
 import SocialLinks from "./SocialLinks";
+import TextType from "./TextType";
 
 const navItems = [
   { to: "/", icon: HomeIcon, label: "Home" },
@@ -20,15 +21,24 @@ const MobileNav = () => {
     <>
       <header className="md:hidden fixed top-0 left-0 right-0 z-50 bg-card border-b border-border">
         <div className="flex items-center justify-between p-4">
-          <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3">
             <img 
-              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" 
+              src="/images/profile.jpg" 
               alt="Ashutosh" 
               className="w-10 h-10 rounded-full object-cover"
             />
-            <div>
+            <div className="flex-1">
               <h2 className="font-semibold text-foreground">Ashutosh</h2>
-              <p className="text-xs text-muted-foreground">Dev Stallion</p>
+              <div className="text-xs text-muted-foreground min-h-[18px]">
+                <TextType 
+                  text={["AI Developer", "Web Builder", "Problem Solver", "Tech Enthusiast"]}
+                  typingSpeed={60}
+                  pauseDuration={2000}
+                  deletingSpeed={40}
+                  showCursor={false}
+                  loop={true}
+                />
+              </div>
             </div>
           </div>
           <button

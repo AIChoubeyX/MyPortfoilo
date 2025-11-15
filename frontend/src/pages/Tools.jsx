@@ -51,7 +51,7 @@ const Tools = () => {
 
   return (
     <MainLayout>
-      <div className="px-6 py-12 md:px-12 md:py-16 flex flex-col items-center justify-center min-h-screen">
+      <div className="px-6 py-12 md:px-12 md:py-16 flex flex-col items-center justify-center min-h-screen mt-[73px] md:mt-0">
         {/* Title and Description - Outside Box */}
         <div className="w-full max-w-xl mb-6 mt-2 pl-4 md:pl-8">
           <h1 className="text-2xl md:text-3xl font-bold text-foreground mb-1">

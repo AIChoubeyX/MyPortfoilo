@@ -8,7 +8,7 @@ const Projects = () => {
       title: "Creonix",
       description: "A Ai Sass applictaion for students and working profesionals.",
       // 📸 ADD IMAGE: Place creonix.png in public/images/ folder
-      screenshot: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='300'%3E%3Crect fill='%23f0f0f0' width='500' height='300'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='%23999' text-anchor='middle' dominant-baseline='middle'%3ECreonix%3C/text%3E%3C/svg%3E",
+      screenshot: "/images/creonix.png",
       tags: ["Personal", "Productivity"],
       status: "active",
       deployment: "https://creonixai.vercel.app/",
@@ -30,7 +30,7 @@ const Projects = () => {
       title: "Talksy",
       description: "Full-stack AI-powered chat application with real-time messaging and user authentication.",
       // 📸 ADD IMAGE: Place talksy.png in public/images/ folder
-      screenshot: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='300'%3E%3Crect fill='%23f0f0f0' width='500' height='300'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='%23999' text-anchor='middle' dominant-baseline='middle'%3ETalksy%3C/text%3E%3C/svg%3E",
+      screenshot: "/images/talksy.png",
       tags: ["AI", "Development"],
       status: "active",
       github: "https://github.com/AIChoubeyX/Talksy-2",
