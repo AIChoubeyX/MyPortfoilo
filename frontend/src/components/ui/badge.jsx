@@ -1,6 +1,6 @@
 import * as React from "react"
 import * as BadgePrimitive from "@radix-ui/react-primitive"
-import { cva, type VariantProps } from "class-variance-authority"
+import { cva } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 
@@ -24,11 +24,7 @@ const badgeVariants = cva(
   }
 )
 
-export interface BadgeProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof badgeVariants> {}
-
-function Badge({ className, variant, ...props }: BadgeProps) {
+function Badge({ className, variant, ...props }) {
   return (
     <div className={cn(badgeVariants({ variant }), className)} {...props} />
   )

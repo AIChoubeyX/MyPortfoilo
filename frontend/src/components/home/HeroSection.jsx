@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { EnvelopeOpenIcon } from "@radix-ui/react-icons";
 import { toast } from "sonner";
 import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
+import { PointerHighlight } from "@/components/ui/pointer-highlight";
 
 const HeroSection = () => {
   const handleCopyEmail = () => {
@@ -12,8 +13,8 @@ const HeroSection = () => {
   return (
     <BackgroundBeamsWithCollision className="rounded-lg">
       <div className="w-full text-center md:text-left px-4 md:px-8 py-8 md:py-6 pt-12 md:pt-16">
-        <h1 className="text-4xl md:text-5xl font-semibold text-foreground mb-2" style={{ fontFamily: '"Inter", system-ui, -apple-system, sans-serif', color: 'rgb(22, 22, 22)' }}>
-          Hey, I'm Ashutosh
+        <h1 className="text-3xl md:text-5xl font-semibold text-foreground mb-2 flex flex-wrap items-center gap-2 justify-center md:justify-start" style={{ fontFamily: '"Inter", system-ui, -apple-system, sans-serif', color: 'rgb(22, 22, 22)' }}>
+          <span>Hey, I'm</span> <PointerHighlight><span>Ashutosh</span></PointerHighlight>
         </h1>
         <h2 className="text-xl md:text-2xl text-muted-foreground font-normal mb-6" style={{ fontFamily: '"Inter", system-ui, -apple-system, sans-serif', color: 'rgb(22, 22, 22)' }}>
          AI Enthusiast
