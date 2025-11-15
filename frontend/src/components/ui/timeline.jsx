@@ -31,7 +31,7 @@ export const Timeline = ({ data }) => {
           Changelog from my journey
         </h2>
         <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-2xl pl-12 md:pl-32">
-          I&apos;ve been working on Aceternity for the past 2 years.
+          I&apos;ve been working on AIML for the past 2 years.
           <br />
           Here&apos;s a timeline of my journey.
         </p>
