@@ -66,9 +66,10 @@ const Assistant = () => {
       setMessages((prev) => [...prev, assistantMessage]);
     } catch (error) {
       console.error("Error:", error);
+      const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
       const errorMessage = {
         id: messages.length + 2,
-        text: "Sorry, there was an error connecting to the AI. Make sure the backend server is running on port 5000.",
+        text: `Sorry, there was an error connecting to the AI. Backend: ${backendUrl}. Error: ${error.message}`,
         sender: "assistant",
         timestamp: new Date(),
       };
