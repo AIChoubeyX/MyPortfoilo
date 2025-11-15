@@ -51,13 +51,11 @@ app.use(
   })
 );
 
-// ---- OpenRouter Model Fallback List (Free Models) ----
+// ---- OpenRouter Model Fallback List (Free + Paid) ----
 const OPENROUTER_MODELS = [
+  "meta-llama/llama-2-7b-chat:free",
   "mistralai/mistral-7b-instruct:free",
   "openchat/openchat-3.5:free",
-  "gryphe/mythomax-l2-13b:free",
-  "undi95/toppy-m-7b:free",
-  "nousresearch/nous-hermes-2-mixtral-8x7b-dpo:free"
 ];
 
 // Health check
@@ -66,6 +64,7 @@ app.get("/", (req, res) => {
     status: "Server running",
     timestamp: new Date().toISOString(),
     openrouterKey: !!process.env.OPENROUTER_API_KEY,
+    availableModels: OPENROUTER_MODELS,
   });
 });
 
@@ -96,6 +95,8 @@ app.post("/api/chat", async (req, res) => {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
+          "HTTP-Referer": "https://myportfoilo.vercel.app",
+          "X-Title": "Ashutosh Portfolio",
         },
         body: JSON.stringify({
           model,
@@ -104,7 +105,7 @@ app.post("/api/chat", async (req, res) => {
             { role: "user", content: message },
           ],
           max_tokens: 2048,
-          temperature: 0.9,
+          temperature: 0.7,
         }),
       });
 
@@ -136,6 +137,7 @@ app.post("/api/chat", async (req, res) => {
   console.error("❌ All models failed");
   return res.status(500).json({
     reply: "All AI models failed to respond. Try again later.",
+    error: "No models available",
   });
 });
 
