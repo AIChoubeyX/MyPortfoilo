@@ -1,12 +1,12 @@
-import { HomeIcon, CheckboxIcon, RocketIcon, BookmarkIcon, PersonIcon, EnvelopeOpenIcon, MixerHorizontalIcon } from "@radix-ui/react-icons";
+import { HomeIcon, ChatBubbleIcon, RocketIcon, CodeIcon, PersonIcon, EnvelopeOpenIcon, MixerHorizontalIcon } from "@radix-ui/react-icons";
 import { NavLink } from "@/components/NavLink";
 import SocialLinks from "./SocialLinks";
 
 const navItems = [
   { to: "/", icon: HomeIcon, label: "Home" },
-  { to: "/experience", icon: CheckboxIcon, label: "Experience" },
-  { to: "/projects", icon: RocketIcon, label: "Projects" },
-  { to: "/blogs", icon: BookmarkIcon, label: "Blogs" },
+  { to: "/assistant", icon: ChatBubbleIcon, label: "Assistant" },
+  { to: "/experience", icon: RocketIcon, label: "Journey" },
+  { to: "/projects", icon: CodeIcon, label: "Projects" },
   { to: "/about", icon: PersonIcon, label: "About" },
   { to: "/contact", icon: EnvelopeOpenIcon, label: "Contact" },
   { to: "/tools", icon: MixerHorizontalIcon, label: "Tools" },

@@ -11,12 +11,12 @@ const HeroSection = () => {
 
   return (
     <BackgroundBeamsWithCollision className="rounded-lg">
-      <div className="w-full text-center md:text-left px-4 md:px-8 py-8 md:py-6">
-        <h1 className="text-4xl md:text-5xl font-semibold text-foreground mb-2">
+      <div className="w-full text-center md:text-left px-4 md:px-8 py-8 md:py-6 pt-12 md:pt-16">
+        <h1 className="text-4xl md:text-5xl font-semibold text-foreground mb-2" style={{ fontFamily: '"Inter", system-ui, -apple-system, sans-serif', color: 'rgb(22, 22, 22)' }}>
           Hey, I'm Ashutosh
         </h1>
-        <h2 className="text-xl md:text-2xl text-muted-foreground font-normal mb-6">
-          AI Product Engineer
+        <h2 className="text-xl md:text-2xl text-muted-foreground font-normal mb-6" style={{ fontFamily: '"Inter", system-ui, -apple-system, sans-serif', color: 'rgb(22, 22, 22)' }}>
+         AI Enthusiast
           <span className="inline-block ml-2 text-highlight">✨</span>
         </h2>
 
@@ -43,35 +43,19 @@ const HeroSection = () => {
         </div>
 
         {/* Bio */}
-        <div className="space-y-2 md:space-y-3 mb-6 text-foreground">
+        <div className="space-y-2 md:space-y-3 mb-6" style={{ fontFamily: '"Inter", system-ui, -apple-system, sans-serif', color: 'rgb(22, 22, 22)', fontWeight: 300 }}>
           <p className="text-xs md:text-sm leading-relaxed">
-            I turn fuzzy ideas into live Products{" "}
-            <span className="italic text-muted-foreground">(quickly)</span>{" "}
-            full-stack AI Builder.
+            I'm Ashutosh Choubey, often called Choubey. I'm a passionate developer specializing in{" "}
+            <span style={{ fontWeight: 500 }}>AI and Web Development</span> at Narula Institute of Technology. 
+            With a strong interest in building scalable applications and intelligent solutions, I enjoy 
+            transforming ideas into impactful digital products.
           </p>
           <p className="text-xs md:text-sm leading-relaxed">
-            Currently working as a Founding Engineer at{" "}
-            <a href="https://kay.ai" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
-              kay.ai
-            </a>
+            <span style={{ fontWeight: 500 }}>3rd Year B.Tech, AIML</span> student at Narula Institute of Technology.
           </p>
           <p className="text-xs md:text-sm leading-relaxed">
-            I have built multiple products in past 5 years.{" "}
-            <a href="#" className="text-accent hover:underline">
-              Raised $100K funding
-            </a>{" "}
-            for my startup{" "}
-            <a href="https://dreamboat.ai" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
-              Dreamboat.ai
-            </a>
-            , built{" "}
-            <a href="https://engagebud.com" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
-              Engagebud
-            </a>
-            ,{" "}
-            <a href="https://influencerbit.com" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
-              Influencerbit.
-            </a>
+            I'm passionate about <span style={{ fontWeight: 500 }}>AI and Web Development</span>, and I love 
+            building scalable applications and intelligent solutions.
           </p>
         </div>
 
