@@ -6,7 +6,7 @@ const Projects = () => {
     {
       id: 1,
       title: "Creonix",
-      description: "A Ai Sass applictaion for students and working profesionals.",
+      description: "AI SaaS application for students and working professionals.",
       // 📸 ADD IMAGE: Place creonix.png in public/images/ folder
       screenshot: "/images/creonix.png",
       tags: ["Personal", "Productivity"],
@@ -17,7 +17,7 @@ const Projects = () => {
     {
       id: 2,
       title: "Cultivate",
-      description: "a multi ai assistant platform for Indian farmers",
+      description: "A multi AI assistant platform for Indian farmers",
       // 📸 ADD IMAGE: Place cultivate.png in public/images/ folder
       screenshot: "/images/cultivate.png",
       tags: ["AI", "Prompts", "Productivity"],
