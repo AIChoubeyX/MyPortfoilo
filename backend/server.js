@@ -56,8 +56,6 @@ const OPENROUTER_MODELS = [
   "mistralai/mistral-7b-instruct:free",
   "openchat/openchat-3.5:free",
   "undi95/toppy-m-7b:free",
-  "nousresearch/nous-hermes-2-mixtral-8x7b-dpo:free",
-  "nousresearch/nous-capybara-7b:free",
 ];
 
 // Health check
@@ -124,6 +122,9 @@ app.post("/api/chat", async (req, res) => {
     try {
       console.log(`⚡ Trying model: ${model}`);
 
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
+
       const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
         headers: {
@@ -141,7 +142,10 @@ app.post("/api/chat", async (req, res) => {
           max_tokens: 2048,
           temperature: 0.7,
         }),
+        signal: controller.signal,
       });
+
+      clearTimeout(timeoutId);
 
       console.log(`📊 Response status: ${response.status}`);
       const data = await response.json();
@@ -154,7 +158,7 @@ app.post("/api/chat", async (req, res) => {
 
       const reply = data?.choices?.[0]?.message?.content;
 
-      if (reply) {
+      if (reply && reply.trim()) {
         console.log(`✅ Successful using model: ${model}`);
         return res.json({ reply, model });
       } else {
@@ -164,7 +168,6 @@ app.post("/api/chat", async (req, res) => {
 
     } catch (err) {
       console.error(`💥 Error with model ${model}:`, err.message);
-      console.error(`Stack:`, err.stack);
       continue; // try next model
     }
   }
