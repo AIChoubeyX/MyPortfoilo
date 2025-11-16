@@ -122,9 +122,6 @@ app.post("/api/chat", async (req, res) => {
     try {
       console.log(`⚡ Trying model: ${model}`);
 
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
-
       const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
         headers: {
@@ -139,13 +136,10 @@ app.post("/api/chat", async (req, res) => {
             { role: "system", content: SYSTEM_PROMPT },
             { role: "user", content: message },
           ],
-          max_tokens: 2048,
+          max_tokens: 500,
           temperature: 0.7,
         }),
-        signal: controller.signal,
       });
-
-      clearTimeout(timeoutId);
 
       console.log(`📊 Response status: ${response.status}`);
       const data = await response.json();
