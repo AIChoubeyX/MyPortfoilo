@@ -51,12 +51,13 @@ app.use(
   })
 );
 
-// ---- OpenRouter Model Fallback List (Available Free + Cheap Models) ----
+// ---- OpenRouter Model Fallback List (Available Free Models) ----
 const OPENROUTER_MODELS = [
-  "gryphe/mythomax-l2-13b:free",
-  "undi95/toppy-m-7b:free",
-  "openchat/openchat-3.5:free",
   "mistralai/mistral-7b-instruct:free",
+  "openchat/openchat-3.5:free",
+  "undi95/toppy-m-7b:free",
+  "nousresearch/nous-hermes-2-mixtral-8x7b-dpo:free",
+  "nousresearch/nous-capybara-7b:free",
 ];
 
 // Health check
@@ -81,7 +82,7 @@ app.get("/api/test", async (req, res) => {
         "X-Title": "Ashutosh Portfolio",
       },
       body: JSON.stringify({
-        model: "gryphe/mythomax-l2-13b:free",
+        model: "mistralai/mistral-7b-instruct:free",
         messages: [
           { role: "user", content: "Say hello" },
         ],
