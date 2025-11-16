@@ -68,6 +68,38 @@ app.get("/", (req, res) => {
   });
 });
 
+// Test endpoint to verify OpenRouter connection
+app.get("/api/test", async (req, res) => {
+  try {
+    const testResponse = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
+        "HTTP-Referer": "https://myportfoilo.vercel.app",
+        "X-Title": "Ashutosh Portfolio",
+      },
+      body: JSON.stringify({
+        model: "meta-llama/llama-2-7b-chat:free",
+        messages: [
+          { role: "user", content: "Say hello" },
+        ],
+        max_tokens: 100,
+      }),
+    });
+
+    const data = await testResponse.json();
+    res.json({
+      status: testResponse.status,
+      data: data,
+    });
+  } catch (err) {
+    res.status(500).json({
+      error: err.message,
+    });
+  }
+});
+
 // ---- Chat Route ----
 app.post("/api/chat", async (req, res) => {
   const { message } = req.body;
@@ -109,11 +141,12 @@ app.post("/api/chat", async (req, res) => {
         }),
       });
 
+      console.log(`📊 Response status: ${response.status}`);
       const data = await response.json();
-      console.log(`📦 Response from ${model}:`, JSON.stringify(data).substring(0, 200));
+      console.log(`📦 Full response:`, JSON.stringify(data).substring(0, 500));
 
       if (!response.ok) {
-        console.error(`❌ Model failed: ${model}`, data);
+        console.error(`❌ Model failed (${response.status}): ${model}`, data);
         continue; // try next model
       }
 
@@ -123,12 +156,13 @@ app.post("/api/chat", async (req, res) => {
         console.log(`✅ Successful using model: ${model}`);
         return res.json({ reply, model });
       } else {
-        console.warn(`⚠️ No reply content from model: ${model}`);
+        console.warn(`⚠️ No reply content from model: ${model}`, data);
         continue;
       }
 
     } catch (err) {
       console.error(`💥 Error with model ${model}:`, err.message);
+      console.error(`Stack:`, err.stack);
       continue; // try next model
     }
   }
