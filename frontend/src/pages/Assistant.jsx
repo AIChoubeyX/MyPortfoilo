@@ -57,9 +57,17 @@ const Assistant = () => {
       }
 
       const data = await response.json();
+      
+      // Decode HTML entities from AI response
+      const decodeHTML = (html) => {
+        const txt = document.createElement('textarea');
+        txt.innerHTML = html;
+        return txt.value;
+      };
+      
       const assistantMessage = {
         id: messages.length + 2,
-        text: data.reply || "Sorry, I couldn't generate a response.",
+        text: decodeHTML(data.reply || "Sorry, I couldn't generate a response."),
         sender: "assistant",
         timestamp: new Date(),
       };
