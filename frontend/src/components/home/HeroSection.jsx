@@ -1,13 +1,20 @@
 import { Button } from "@/components/ui/button";
 import { EnvelopeOpenIcon } from "@radix-ui/react-icons";
 import { toast } from "sonner";
+import { useNavigate } from "react-router-dom";
 import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 import { PointerHighlight } from "@/components/ui/pointer-highlight";
 
 const HeroSection = () => {
+  const navigate = useNavigate();
+  
   const handleCopyEmail = () => {
     navigator.clipboard.writeText("ashutoshchoubey2004@gmail.com");
     toast.success("Email copied to clipboard!");
+  };
+
+  const handleContactClick = () => {
+    navigate("/contact");
   };
 
   return (
@@ -77,6 +84,7 @@ const HeroSection = () => {
           <div className="flex gap-2 md:gap-3 pt-2 justify-center md:justify-start">
             <Button 
               size="sm"
+              onClick={handleContactClick}
               className="bg-foreground text-background hover:bg-foreground/90 text-xs md:text-sm"
             >
               Contact
