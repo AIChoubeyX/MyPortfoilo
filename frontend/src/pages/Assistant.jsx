@@ -103,7 +103,12 @@ const Assistant = () => {
 
           {/* Messages Container */}
           <div className="flex-1 overflow-y-auto px-3 sm:px-4 md:px-6 py-3 sm:py-4 md:py-6 space-y-3 sm:space-y-4">
-            {messages.map((message) => (
+            {messages.map((message) => {
+              // Skip rendering empty messages
+              if (!message.text || message.text.trim() === "") {
+                return null;
+              }
+              return (
               <div
                 key={message.id}
                 className={`flex ${
@@ -126,7 +131,8 @@ const Assistant = () => {
                   </span>
                 </div>
               </div>
-            ))}
+              );
+            })}
             {isLoading && (
               <div className="flex justify-start">
                 <div className="bg-gray-100 text-gray-900 border border-border px-4 py-2 rounded-lg rounded-bl-none">
