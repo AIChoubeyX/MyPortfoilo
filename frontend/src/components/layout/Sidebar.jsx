@@ -5,7 +5,7 @@ import TextType from "./TextType";
 
 const navItems = [
   { to: "/", icon: HomeIcon, label: "Home" },
-  { to: "/assistant", icon: ChatBubbleIcon, label: "Assistant" },
+  // { to: "/assistant", icon: ChatBubbleIcon, label: "Assistant" },
   { to: "/experience", icon: RocketIcon, label: "Journey" },
   { to: "/projects", icon: CodeIcon, label: "Projects" },
   { to: "/about", icon: PersonIcon, label: "About" },
